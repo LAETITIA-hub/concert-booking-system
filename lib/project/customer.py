@@ -25,7 +25,7 @@ class Customer:
         conn = sqlite3.connect('concert_booking.db')
         cursor = conn.cursor()
         
-        # First delete all tickets associated with this customer
+       
         cursor.execute('DELETE FROM tickets WHERE customer_id = ?', (self.id,))
         
         # Then delete the customer
