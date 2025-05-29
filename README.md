@@ -53,22 +53,3 @@ concert-booking-system/
    ```bash
    python --version
    ```
-
-3. **No additional dependencies required** - uses only Python standard library
-
-## 💻 Usage
-
-### Starting the Application
-
-```bash
-python cli.py
-```
-
-### Main Menu
-
-The application presents a comprehensive menu organized by CRUD operations:
-
-```
-==================================================
-CONCERT BOOKING SYSTEM - FULL CRUD
-==================================================
