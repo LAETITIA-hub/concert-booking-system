@@ -27,7 +27,7 @@ class Event:
         conn = sqlite3.connect('concert_booking.db')
         cursor = conn.cursor()
         
-        # First delete all tickets associated with this event
+        
         cursor.execute('DELETE FROM tickets WHERE event_id = ?', (self.id,))
         
         # Then delete the event
