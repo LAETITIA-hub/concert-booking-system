@@ -27,7 +27,7 @@ class Artist:
         
         cursor.execute('DELETE FROM events WHERE artist_id = ?', (self.id,))
         
-        # Then delete the artist
+       
         cursor.execute('DELETE FROM artists WHERE id = ?', (self.id,))
         
         conn.commit()
