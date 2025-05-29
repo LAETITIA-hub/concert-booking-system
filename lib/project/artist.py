@@ -24,7 +24,7 @@ class Artist:
         conn = sqlite3.connect('concert_booking.db')
         cursor = conn.cursor()
         
-        # First delete all events associated with this artist
+        
         cursor.execute('DELETE FROM events WHERE artist_id = ?', (self.id,))
         
         # Then delete the artist
