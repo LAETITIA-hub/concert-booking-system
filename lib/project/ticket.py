@@ -1,4 +1,3 @@
-### ticket.py
 import sqlite3
 from project.customer import Customer
 from project.event import Event
@@ -20,6 +19,17 @@ class Ticket:
         conn.commit()
         conn.close()
 
+    def delete(self):
+        """Delete this ticket from the database"""
+        if self.id is None:
+            raise ValueError("Cannot delete ticket without ID")
+        
+        conn = sqlite3.connect('concert_booking.db')
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM tickets WHERE id = ?', (self.id,))
+        conn.commit()
+        conn.close()
+
     @classmethod
     def get_all(cls):
         conn = sqlite3.connect('concert_booking.db')
@@ -28,6 +38,16 @@ class Ticket:
         tickets = [cls(customer_id=row[1], event_id=row[2], id=row[0]) for row in cursor.fetchall()]
         conn.close()
         return tickets
+
+    @classmethod
+    def find_by_id(cls, id):
+        """Find a ticket by its ID"""
+        conn = sqlite3.connect('concert_booking.db')
+        cursor = conn.cursor()
+        cursor.execute('SELECT id, customer_id, event_id FROM tickets WHERE id = ?', (id,))
+        row = cursor.fetchone()
+        conn.close()
+        return cls(customer_id=row[1], event_id=row[2], id=row[0]) if row else None
 
     @classmethod
     def find_by_customer(cls, customer_id):

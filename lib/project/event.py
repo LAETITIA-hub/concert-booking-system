@@ -1,4 +1,3 @@
-### event.py
 import sqlite3
 from project.artist import Artist
 
@@ -17,6 +16,23 @@ class Event:
             self.id = cursor.lastrowid
         else:
             cursor.execute('UPDATE events SET name = ?, date = ?, artist_id = ? WHERE id = ?', (self.name, self.date, self.artist_id, self.id))
+        conn.commit()
+        conn.close()
+
+    def delete(self):
+        """Delete this event from the database"""
+        if self.id is None:
+            raise ValueError("Cannot delete event without ID")
+        
+        conn = sqlite3.connect('concert_booking.db')
+        cursor = conn.cursor()
+        
+        # First delete all tickets associated with this event
+        cursor.execute('DELETE FROM tickets WHERE event_id = ?', (self.id,))
+        
+        # Then delete the event
+        cursor.execute('DELETE FROM events WHERE id = ?', (self.id,))
+        
         conn.commit()
         conn.close()
 

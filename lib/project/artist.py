@@ -16,6 +16,23 @@ class Artist:
         conn.commit()
         conn.close()
 
+    def delete(self):
+        """Delete this artist from the database"""
+        if self.id is None:
+            raise ValueError("Cannot delete artist without ID")
+        
+        conn = sqlite3.connect('concert_booking.db')
+        cursor = conn.cursor()
+        
+        # First delete all events associated with this artist
+        cursor.execute('DELETE FROM events WHERE artist_id = ?', (self.id,))
+        
+        # Then delete the artist
+        cursor.execute('DELETE FROM artists WHERE id = ?', (self.id,))
+        
+        conn.commit()
+        conn.close()
+
     @classmethod
     def get_all(cls):
         conn = sqlite3.connect('concert_booking.db')

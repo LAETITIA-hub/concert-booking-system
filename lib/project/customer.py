@@ -17,6 +17,23 @@ class Customer:
         conn.commit()
         conn.close()
 
+    def delete(self):
+        """Delete this customer from the database"""
+        if self.id is None:
+            raise ValueError("Cannot delete customer without ID")
+        
+        conn = sqlite3.connect('concert_booking.db')
+        cursor = conn.cursor()
+        
+        # First delete all tickets associated with this customer
+        cursor.execute('DELETE FROM tickets WHERE customer_id = ?', (self.id,))
+        
+        # Then delete the customer
+        cursor.execute('DELETE FROM customers WHERE id = ?', (self.id,))
+        
+        conn.commit()
+        conn.close()
+
     @classmethod
     def get_all(cls):
         conn = sqlite3.connect('concert_booking.db')
