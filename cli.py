@@ -3,7 +3,7 @@ import os
 import sqlite3
 from datetime import datetime
 
-# Add 'lib' directory to the Python path so 'project' can be imported
+
 sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
 
 from project.artist import Artist
@@ -167,7 +167,7 @@ def main():
                 ticket.save()
                 print("✅ Ticket booked successfully.")
 
-            # READ OPERATIONS
+            
             elif choice == '5':
                 artists = Artist.get_all()
                 if not artists:
@@ -326,7 +326,7 @@ def main():
                 else:
                     print("ℹ️  No changes made.")
 
-            # DELETE OPERATIONS
+           
             elif choice == '13':
                 artists = Artist.get_all()
                 if not artists:
