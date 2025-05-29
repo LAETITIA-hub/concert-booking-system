@@ -28,7 +28,7 @@ class Customer:
        
         cursor.execute('DELETE FROM tickets WHERE customer_id = ?', (self.id,))
         
-        # Then delete the customer
+        
         cursor.execute('DELETE FROM customers WHERE id = ?', (self.id,))
         
         conn.commit()
