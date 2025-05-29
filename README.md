@@ -55,3 +55,16 @@ Usage
 Run: python cli.py.
 Navigate via a menu with 17 options (e.g., add artist, book ticket, view events).
 Example: Add an artist, create an event, book a ticket for a customer.
+
+Requirements
+Python 3.6+.
+SQLite (included in Python standard library).
+Compatible with Windows, macOS, Linux.
+
+Contributing
+Fork the repo, create a feature branch, commit changes, and submit a pull request.
+
+Troubleshooting
+Database Issues: Delete concert_booking.db and restart to reset.
+Permissions: Ensure write access to the project directory.
+Import Errors: Verify lib/ directory structure.
