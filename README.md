@@ -39,17 +39,3 @@ concert-booking-system/
 │       ├── event.py              # Event model and operations
 │       └── ticket.py             # Ticket model and operations
 └── README.md                     # This file
-```
-
-## 🚀 Installation
-
-1. **Clone or download the project**:
-   ```bash
-   git clone <repository-url>
-   cd concert-booking-system
-   ```
-
-2. **Ensure Python 3.6+ is installed**:
-   ```bash
-   python --version
-   ```
