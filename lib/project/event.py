@@ -30,7 +30,7 @@ class Event:
         
         cursor.execute('DELETE FROM tickets WHERE event_id = ?', (self.id,))
         
-        # Then delete the event
+       
         cursor.execute('DELETE FROM events WHERE id = ?', (self.id,))
         
         conn.commit()
