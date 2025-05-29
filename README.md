@@ -39,15 +39,18 @@ concert-booking-system/
 │       ├── event.py              # Event model and operations
 │       └── ticket.py             # Ticket model and operations
 └── README.md                     # This file
+
  CRUD Operations
 Create: Add artists, customers, events, and book tickets.
 Read: View all artists, customers, events, tickets, or customer-specific tickets.
 Update: Modify artist names, customer details, or event details.
 Delete: Remove artists, customers, events, or tickets (with cascading deletes).
+
 Installation
 Clone the repository: git clone <repository-url>.
 Ensure Python 3.6+ is installed: python --version.
 No additional dependencies required.
+
 Usage
 Run: python cli.py.
 Navigate via a menu with 17 options (e.g., add artist, book ticket, view events).
